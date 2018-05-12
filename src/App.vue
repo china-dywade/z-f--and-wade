@@ -1,7 +1,14 @@
 <template>
   <div id="app">
       <Head/>
-      <router-view> </router-view> 
+      <div class="maincontainer">
+        <div class="m-c-t">
+           <keep-alive>
+             <router-view> </router-view> 
+           </keep-alive>
+        </div>
+      </div>
+     
       <Foot/>
   </div>
 </template>

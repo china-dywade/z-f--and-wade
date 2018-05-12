@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import all from '../allProduct'
-import ppzb from '../ppzb'
-import jzmd from '../jzmd'
-import home from '../home'
-import myyh from '../mysale'
-import shserver from '../shsevice'
-import address from '../address'
-import userinfo from '../userinfo'
-import myorder from '../myorder'
+import all from '../breadNav/allProduct'
+import ppzb from '../breadNav/ppzb'
+import jzmd from '../breadNav/jzmd'
+import home from '../breadNav/home'
+import myyh from '../settings/mysale'
+import shserver from '../settings/shsevice'
+import address from '../settings/address'
+import userinfo from '../settings/userinfo'
+import myorder from '../settings/myorder'
 Vue.use(Router)
 
 export default new Router({
