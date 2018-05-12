@@ -84,3 +84,18 @@
   background: #ededed;
   overflow: hidden;
 }
+.carouselcontent{
+  margin-top:30px;
+}
+.carouselcontent .el-carousel__item h3 {
+  width: 100%;
+  line-height: 400px;
+}
+.carouselcontent .el-carousel__item h3 img{
+  height:100%;
+  min-height: 100%;
+  min-width:100%;
+}
+.carouselcontent .el-carousel{
+  border-radius: 10px;
+}
