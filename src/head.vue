@@ -18,12 +18,14 @@
                                 </el-input>
                             </div>             
                           </div>
-                      <div class="rt">
-                          <el-dropdown trigger="click" v-if="$store.state.islogin">
+                      <div class="rt" style="margin-top:5px;">
+                        <span class="allprodt" ><router-link to="/all">全部商品</router-link></span>
+                          <span class="loginout" @click="zcdl">注册&nbsp;&nbsp;|&nbsp;&nbsp;登录</span>
+                          <el-dropdown trigger="click">
                             <span class="el-dropdown-link">
                                 <i class="el-icon-setting el-icon--right"></i>
                             </span>
-                            <el-dropdown-menu slot="dropdown" >
+                               <el-dropdown-menu slot="dropdown" >
                                <el-dropdown-item v-for="(item,index) in settingList" @click="addRouter(index)" :key="index"><router-link :to='routerAddress[index]'>{{item}}</router-link></el-dropdown-item>
                                 <!-- <el-dropdown-item to="/myorder">我的订单</el-dropdown-item>
                                 <el-dropdown-item to="/userinfo">账号资料</el-dropdown-item>
@@ -33,16 +35,28 @@
                                 <!-- <el-dropdown-item @click="loginout">退出</el-dropdown-item> -->
                               </el-dropdown-menu>
                             </el-dropdown>
-                            <span class="el-dropdown-link" @click="islogin"  v-if="$store.state.islogin==false">
-                                <i class="el-icon-setting el-icon--right"></i>
+                              <!-- <span class="el-dropdown-link" v-if="$store.state.islogin==false">
+                                        <i class="el-icon-setting el-icon--right"></i>
+                              </span> -->
+                            <el-dropdown trigger="hover" >
+                            <span class="el-dropdown-link" style="display:inline-block;margin-right:30px;">
+                                <i class="el-icon-goods el-icon--right"></i>
                             </span>
-                                     
+                            <el-dropdown-menu slot="dropdown" >
+                                    <div class="orderconten">
+                                        <ul>
+                                          <li>我是订单1</li>
+                                        </ul>
+                                        <el-button type="primary">去购物车</el-button>
+                                    </div>
+                              </el-dropdown-menu>
+                            </el-dropdown>        
                        
                       </div> 
                 </div>
               </div>
         </div>
-        <div class="breadList">
+        <div :class="isAddClass?'breadList bl-fixed':'breadList'" >
          <div class="m-c-t mg-t10" >
             <el-breadcrumb separator-class="el-icon-arrow-right" >
                     <el-breadcrumb-item to="/home">首页</el-breadcrumb-item>
@@ -66,14 +80,28 @@ export default {
     data(){
       return {
         seachVal:'',
+        isAddClass:false,
         settingList:["我的订单","账号资料","收货地址","售后服务","我的优惠","退出"],
         routerAddress:["/myorder","/userinfo","/address","/shserver","/myyh","/home"]
       }
+    },
+
+    mounted(){
+        window.addEventListener('scroll', this.handleScroll)
     },
     computed:{
      
     },
     methods:{
+      handleScroll () {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var offsetTop = document.querySelector('.bg-purple-dark').offsetTop
+          if (scrollTop > offsetTop) {
+            this.isAddClass = true
+          } else {
+            this.isAddClass = false
+          }
+      },
       ...mapMutations(["login"]),
       islogin(){
         this.$confirm('您尚未登录请登录?', '提示', {
@@ -95,10 +123,15 @@ export default {
         });
 
       },
-
+      zcdl(){
+        this.login();
+      },
       seachCallBack:function(){
             console.log(this.seachVal);
       }
+    },
+    destroyed () {
+        window.removeEventListener('scroll', this.handleScroll)
     }
 }
 </script>

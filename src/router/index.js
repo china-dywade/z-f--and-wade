@@ -9,10 +9,22 @@ import shserver from '../settings/shsevice'
 import address from '../settings/address'
 import userinfo from '../settings/userinfo'
 import myorder from '../settings/myorder'
+import prodetail from '../panellist/detail.vue'
+import login from '../login'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: home
+    },
+    {
+      path: '/login',
+      name: 'login ',
+      component:login 
+    },
     {
       path: '/all',
       name: 'all',
@@ -53,6 +65,11 @@ export default new Router({
       path: '/shserver',
       name: 'shserver',
       component: shserver
+    },
+    {
+      path: '/product/:pid',
+      name: 'prodetail',
+      component: prodetail
     },
     {
       path: '/myyh',

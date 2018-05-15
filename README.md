@@ -10,23 +10,21 @@
 
 ## Start
 
- - Clone or download this repository
- - Enter your local directory, and install dependencies:
+ - 1.克隆 仓库 到本地
+ 
+ git  clone  https://github.com/china-dywade/z-f--and-wade.git
+ 
+ - 2.安装依赖
+ npm i  
+ 
+ npm install vue-router --save
+ npm install vuex --save
+ -3 开发版本
+ npm run dev
+ -4 发布版本
+ npm run  build
+ 
+ 
+ 
 
-``` bash
-yarn
-```
 
-## Develop
-
-``` bash
-# serve with hot reload at localhost:8010
-npm run dev
-```
-
-## Build
-
-``` bash
-# build for production with minification
-npm run build
-```
