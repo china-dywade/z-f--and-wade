@@ -15,13 +15,19 @@
  git  clone  https://github.com/china-dywade/z-f--and-wade.git
  
  - 2.安装依赖
+ 
  npm i  
  
  npm install vue-router --save
+ 
  npm install vuex --save
- -3 开发版本
+ 
+ - 3 开发版本
+ 
  npm run dev
- -4 发布版本
+ 
+ - 4 发布版本
+ 
  npm run  build
  
  
